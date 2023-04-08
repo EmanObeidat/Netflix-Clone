@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ModalMovie from '../ModalMovie/ModalMovie';
+import ModalMovie from '../ModalMovie/ModelMovie';
 import { useState } from 'react';
 
 export default function Movie(props){

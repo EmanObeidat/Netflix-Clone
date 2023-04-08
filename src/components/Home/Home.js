@@ -1,5 +1,8 @@
 import{ useState, useEffect } from 'react';
-import MovieList from './MovieList';
+import MovieList from '../MovieList/MovieList';
+
+
+
   export default function Home(){
     const url =process.env.REACT_APP_URL;
     const [movies, setmovies] = useState([]);
