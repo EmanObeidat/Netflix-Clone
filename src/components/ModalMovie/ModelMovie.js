@@ -1,36 +1,52 @@
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import { Form } from 'react-bootstrap';
+import { Modal } from "react-bootstrap";
+import { useState } from "react";
+
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
+export default function ModalMovie(props){
+
+ const [comment, setComment] = useState(false);
+ const handleComment = () => setComment(!Comment);
+
+function commentState() {
+  return comment ? "Cancel comment" : "Add comment";
+}
+ return (
+   <>
+     <Modal show={props.show} onHide={props.handleClose}>
+       <Modal.Header closeButton>
+         <Modal.Title>{props.data.title}</Modal.Title>
+       </Modal.Header>
+
+       <img src={props.data.poster_path} alt={props.data.title} />
+       <Modal.Body>{props.data.overview}</Modal.Body>
 
 
-export default  function ModalMovie(props){
-    return (
-        <Modal show={props.show} onHide={props.handleClose} >
-        <Modal.Header closeButton>
-          <Modal.Title>{props.movie.title}</Modal.Title>
-        </Modal.Header>
-       
-        <Modal.Body>
+
+       {Comment ?
        <Form>
-         <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Add your comment</Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-      </Form>
+       <Form.Group controlId="formComment"></Form.Group>
+       <Form.Label>Comment</Form.Label>
+       <Form.Control type="textarea" placeholder="Enter a comment here " value={comment}  />
+       </Form>
+       : null}
 
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={props.handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={props.handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      
-    )
+       <Modal.Footer>
+         <Button variant="secondary" onClick={props.handleClose}>
+           Close
+         </Button>
+         <Button variant="primary" onClick={handleComment}>
+           {commentState()}
+         </Button>
+         <Button variant="primary" onClick={props.handleClose}>
+           Save Changes
+         </Button>
+       </Modal.Footer>
+     </Modal>
+   </>
+ );
+
+
 }
