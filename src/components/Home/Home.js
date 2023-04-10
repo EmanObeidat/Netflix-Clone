@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-no-undef */
 import{ useState, useEffect } from 'react';
 import MovieList from '../MovieList/MovieList';
-import Navbar from '../Navbar/Navbar';
+
 
 
 
   export default function Home(){
-    const url =process.env.URL;
+    const url =process.env.REACT_APP_URL;
     const [movies, setmovies] = useState([]);
      async function sendReq(){
         const response = await fetch(`${url}/trending`);
@@ -28,17 +28,8 @@ import Navbar from '../Navbar/Navbar';
     return(
         <>
           <h2> Welcome to  Home Page</h2>
-          <MovieList  data={movies}/>
-        <Navbar bg="dark" variant="dark">
-        <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/favRecipes">fav-Recipes</Nav.Link>
-
-            </Nav>
-        </Container>
-    </Navbar>
+          <MovieList data={movies}/>
+         
     </>
 
     )
