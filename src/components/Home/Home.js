@@ -10,7 +10,6 @@ import Navbar from '../Navbar/Navbar';
     const [movies, setmovies] = useState([]);
      async function sendReq(){
         const response = await fetch(`${url}/trending`);
-        console.log(response)
         const data = await response.json();
         console.log(data);
         setmovies(data);
@@ -29,7 +28,7 @@ import Navbar from '../Navbar/Navbar';
     return(
         <>
           <h2> Welcome to  Home Page</h2>
-          <MovieList  movies={movies}/>
+          <MovieList  data={movies}/>
         <Navbar bg="dark" variant="dark">
         <Container>
             <Navbar.Brand href="/">Navbar</Navbar.Brand>

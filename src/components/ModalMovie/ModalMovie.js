@@ -20,7 +20,7 @@ function commentState() {
          <Modal.Title>{props.data.title}</Modal.Title>
        </Modal.Header>
 
-       <img src={props.data.poster_path} alt={props.data.title} />
+       <img src={`https://image.tmdb.org/t/p/w500${props.data.poster_path} `} alt={props.data.title}       />
        <Modal.Body>{props.data.overview}</Modal.Body>
 
 

@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ModalMovie from '../ModalMovie/ModelMovie';
+import ModalMovie from '../ModalMovie/ModalMovie';
 import { useState } from 'react';
 
 export default function Movie(props){
@@ -13,7 +13,7 @@ export default function Movie(props){
     return (
         <div id="div">
         <Card id = 'card' style={{ width: '18rem' }}>
-        <Card.Img variant="top" src = {props.data.posterPath} />
+        <Card.Img variant="top" src ={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}/>
         <Card.Body id="card-body">
             <Card.Title>{props.data.title}</Card.Title>
             <Card.Text>
